@@ -1,35 +1,56 @@
 package org.example;
 
 import java.util.Scanner;
-import org.calculator.Calculator;
-import org.calculator.FourBaseArithmeticCalculator;
+import org.step1.calculator.Calculator;
+import org.step1.calculator.FourBaseArithmeticCalculator;
+import org.step1.convertor.Convertor;
+import org.step1.convertor.ConvertorImpl;
+import org.step1.spliter.Spliter;
+import org.step1.spliter.SpliterImpl;
+import org.step1.validator.Validator;
+import org.step1.validator.ValidatorImpl;
 
 public class Main {
 
     public static void main(String[] args) {
 
+        Spliter spliter = new SpliterImpl();
         Calculator calculator = new FourBaseArithmeticCalculator();
+        Convertor convertor = new ConvertorImpl();
+        Validator validator = new ValidatorImpl();
+        Scanner scannerValue;
+
         while (true) {
-            String inputValue = userInput();
+            scannerValue = new Scanner(System.in);
+            String inputValue = scannerValue.nextLine();
 
-            if (stopCheck(inputValue)) break;
+            if (breakChecker(inputValue)) break;
 
-            String[] inputList = calculator.inputSplit(inputValue);
+            String[] stringArray = spliter.splitInsertValue(inputValue);
 
-            String resultValue = inputList[0];
+            String targetA = stringArray[0];
+            for (int i = 1; i < stringArray.length; i += 2) {
+                String operator = stringArray[i];
+                validator.validateOperator(operator);
 
-            for (int i = 1; i < inputList.length; i++) {
-                resultValue = calculator.getResult(inputList[i++], resultValue, inputList[i]);
+                String targetB = stringArray[i + 1];
+                int intA = convertor.convertStringToInteger(targetA);
+                int intB = convertor.convertStringToInteger(targetB);
+
+                switch (operator) {
+                    case "+" -> intA = calculator.add(intA, intB);
+                    case "-" -> intA = calculator.subtract(intA, intB);
+                    case "*" -> intA = calculator.multiple(intA, intB);
+                    case "/" -> intA = calculator.divide(intA, intB);
+                }
+
+                targetA = convertor.convertIntegerToString(intA);
             }
-            System.out.println(inputValue + " = " + resultValue);
+            System.out.println("result: " + targetA);
         }
     }
 
-    public static String userInput() {
-        return new Scanner(System.in).nextLine();
-    }
-
-    public static boolean stopCheck(String inputValue) {
-        return inputValue.equals("stop");
+    private static boolean breakChecker(String inputValue) {
+        return inputValue.equals("break");
     }
 }
