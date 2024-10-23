@@ -1,56 +1,77 @@
 package org.example;
 
-import java.util.Scanner;
-import org.step1.calculator.Calculator;
-import org.step1.calculator.FourBaseArithmeticCalculator;
-import org.step1.convertor.Convertor;
-import org.step1.convertor.ConvertorImpl;
-import org.step1.spliter.Spliter;
-import org.step1.spliter.SpliterImpl;
-import org.step1.validator.Validator;
-import org.step1.validator.ValidatorImpl;
+import java.util.function.BiFunction;
 
 public class Main {
-
     public static void main(String[] args) {
 
-        Spliter spliter = new SpliterImpl();
-        Calculator calculator = new FourBaseArithmeticCalculator();
-        Convertor convertor = new ConvertorImpl();
-        Validator validator = new ValidatorImpl();
-        Scanner scannerValue;
+        // 문자 입력
+        // 계산기 돌림
+        // 결과 반환
+        String input = "2 + 3 * 4 / 2";
+        Double resultValue = Calculator.returnResultValue(new SplitFormulaBySplitter(input, " ").splitInputValue());
 
-        while (true) {
-            scannerValue = new Scanner(System.in);
-            String inputValue = scannerValue.nextLine();
+        System.out.println(resultValue);
+    }
+}
 
-            if (breakChecker(inputValue)) break;
+interface SplitFormula {
 
-            String[] stringArray = spliter.splitInsertValue(inputValue);
+    String[] splitInputValue();
+}
 
-            String targetA = stringArray[0];
-            for (int i = 1; i < stringArray.length; i += 2) {
-                String operator = stringArray[i];
-                validator.validateOperator(operator);
+class SplitFormulaBySplitter implements SplitFormula {
 
-                String targetB = stringArray[i + 1];
-                int intA = convertor.convertStringToInteger(targetA);
-                int intB = convertor.convertStringToInteger(targetB);
+    private String inputValue;
+    private String splitter;
 
-                switch (operator) {
-                    case "+" -> intA = calculator.add(intA, intB);
-                    case "-" -> intA = calculator.subtract(intA, intB);
-                    case "*" -> intA = calculator.multiple(intA, intB);
-                    case "/" -> intA = calculator.divide(intA, intB);
-                }
-
-                targetA = convertor.convertIntegerToString(intA);
-            }
-            System.out.println("result: " + targetA);
-        }
+    public SplitFormulaBySplitter(String inputValue, String splitter) {
+        this.inputValue = inputValue;
+        this.splitter = splitter;
     }
 
-    private static boolean breakChecker(String inputValue) {
-        return inputValue.equals("break");
+    @Override
+    public String[] splitInputValue() {
+        return this.inputValue.split(this.splitter);
+    }
+}
+
+enum Calculator {
+
+    ADD((a, b) -> a + b),
+    SUBTRACT((a, b) -> a - b),
+    MULTIPLY((a, b) -> a * b),
+    DIVIDE((a, b) -> {
+        if (b == 0) throw new ArithmeticException("0으로는 나눌 수 없습니다.");
+        return a / b;
+    });
+
+    private final BiFunction<Double, Double, Double> operation;
+
+    Calculator(BiFunction<Double, Double, Double> operation) {
+        this.operation = operation;
+    }
+
+    public static Double returnResultValue(String[] inputValue) {
+        return calculateFormula(inputValue);
+    }
+
+
+    private static Double calculateFormula(String[] inputValue) {
+        double result = Double.parseDouble(inputValue[0]);
+
+        for (int i = 1; i < inputValue.length; i += 2) {
+            String operator = inputValue[i];
+            double nextValue = Double.parseDouble(inputValue[i + 1]);
+            result = calculate(result, nextValue, operator);
+        }
+
+        return result;
+    }
+
+    private static Double calculate(double a, double b, String operator) {
+        return switch (operator) {
+
+        };
     }
 }
