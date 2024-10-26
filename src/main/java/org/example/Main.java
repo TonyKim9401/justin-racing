@@ -9,7 +9,7 @@ public class Main {
         // 계산기 돌림
         // 결과 반환
         String input = "2 + 3 * 4 / 2";
-        Double resultValue = Calculator.returnResultValue(new SplitFormulaBySplitter(input, " ").splitInputValue());
+        Calculator.ADD.operation.apply(2.0, 3.0);
 
         System.out.println(resultValue);
     }

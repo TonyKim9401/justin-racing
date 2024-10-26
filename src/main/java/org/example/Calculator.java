@@ -1,5 +1,6 @@
 package org.example;
 
+import java.util.List;
 import java.util.function.BiFunction;
 
 enum Calculator {
@@ -14,7 +15,7 @@ enum Calculator {
         return a / b;
     });
 
-    private final BiFunction<Double, Double, Double> operation;
+    public final BiFunction<Double, Double, Double> operation;
 
     Calculator(BiFunction<Double, Double, Double> operation) {
         this.operation = operation;
@@ -25,20 +26,7 @@ enum Calculator {
     }
 
     private static Double calculateFormula(String[] inputValue) {
-        double result = Double.parseDouble(inputValue[0]);
 
-        for (int i = 1; i < inputValue.length; i += 2) {
-            String operator = inputValue[i];
-            double nextValue = Double.parseDouble(inputValue[i + 1]);
-            result = calculate(result, nextValue, operator);
-        }
-
-        return result;
     }
 
-    private static Double calculate(double a, double b, String operator) {
-        return switch (operator) {
-
-        };
-    }
 }
