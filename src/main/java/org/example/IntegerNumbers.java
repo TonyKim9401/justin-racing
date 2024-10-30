@@ -9,4 +9,8 @@ public class IntegerNumbers {
     public IntegerNumbers(List<IntegerNumber> integerNumbers) {
         this.integerNumbers = integerNumbers;
     }
+
+    public List<IntegerNumber> getIntegerNumbers() {
+        return this.integerNumbers;
+    }
 }

@@ -1,6 +1,11 @@
 package org.example;
 
+import java.util.List;
+
 interface SplitFormula {
 
-    String[] splitInputValue();
+    List<IntegerNumber> getNumbers();
+
+    List<Operator> getOperators();
+
 }

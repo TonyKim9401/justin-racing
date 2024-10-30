@@ -1,6 +1,5 @@
 package org.example;
 
-import java.util.List;
 import java.util.function.BiFunction;
 
 enum Calculator {
@@ -17,16 +16,29 @@ enum Calculator {
 
     public final BiFunction<Double, Double, Double> operation;
 
+    private static final String SPLITTER = " ";
+
     Calculator(BiFunction<Double, Double, Double> operation) {
         this.operation = operation;
     }
 
-    public static Double returnResultValue(String[] inputValue) {
-        return calculateFormula(inputValue);
+    public static void printResultValue(String formula) {
+        System.out.println(calculateFormula(formula));
     }
 
-    private static Double calculateFormula(String[] inputValue) {
+    private static Double calculateFormula(String formula) {
+        SplitFormula splitFormula = new SplitFormulaBySplitter(formula, SPLITTER);
+        IntegerNumbers integerNumbers = getIntegerNumbers(splitFormula);
+        Operators operators = getOperators(splitFormula);
 
+        return 0D;
     }
 
+    private static IntegerNumbers getIntegerNumbers(SplitFormula splitFormula) {
+        return new IntegerNumbers(splitFormula.getNumbers());
+    }
+
+    private static Operators getOperators(SplitFormula splitFormula) {
+        return new Operators(splitFormula.getOperators());
+    }
 }

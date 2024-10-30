@@ -9,4 +9,8 @@ public class Operators {
     public Operators(List<Operator> operators) {
         this.operators = operators;
     }
+
+    public List<Operator> getOperators() {
+        return this.operators;
+    }
 }
