@@ -11,7 +11,6 @@ public class Main {
         String input = "2 + 3 * 4 / 2";
         Calculator.ADD.operation.apply(2.0, 3.0);
 
-        System.out.println(resultValue);
     }
 }
 
