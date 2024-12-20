@@ -36,13 +36,13 @@ enum Calculator {
         Integer calculateResult = numberValues.get(0);
 
         for (int i = 0; i < operatorValues.size(); i++) {
-            String operator = operatorValues.get(i);
-            Integer nextNumber = numberValues.get(i+1);
-
-            Calculator calculation = getOperator(operator);
-            calculateResult = calculation.operation.apply(calculateResult, nextNumber);
+            calculateResult = applyOperation(getOperator(operatorValues.get(i)), calculateResult, numberValues.get(i+1));
         }
 
         return calculateResult;
+    }
+
+    private static Integer applyOperation(Calculator calculation, Integer calculateResult, Integer nextNumber) {
+        return calculation.operation.apply(calculateResult, nextNumber);
     }
 }

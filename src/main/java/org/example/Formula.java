@@ -15,9 +15,16 @@ public class Formula {
         this.sc = new Scanner(System.in);
         this.formula = sc.nextLine();
         this.sc.close();
+        validateNullOrEmpty();
     }
 
     public String getFormula() {
         return this.formula;
+    }
+
+    private void validateNullOrEmpty() {
+        if (this.formula.isEmpty()) {
+            throw new IllegalArgumentException("공백이나 빈 값은 입력할 수 없습니다.");
+        }
     }
 }
