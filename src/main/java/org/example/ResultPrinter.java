@@ -1,9 +1,9 @@
 package org.example;
 
 public class ResultPrinter {
-    private final Double result;
+    private final Integer result;
 
-    public ResultPrinter(Double result) {
+    public ResultPrinter(Integer result) {
         this.result = result;
     }
 

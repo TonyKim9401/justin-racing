@@ -1,5 +1,6 @@
 package org.example;
 
+import java.util.List;
 import java.util.function.BiFunction;
 
 enum Calculator {
@@ -12,22 +13,36 @@ enum Calculator {
         return a / b;
     });
 
-    public final String operator;
-    public final BiFunction<Double, Double, Double> operation;
+    private final String operator;
+    private final BiFunction<Integer, Integer, Integer> operation;
 
-    Calculator(String operator, BiFunction<Double, Double, Double> operation) {
+    Calculator(String operator, BiFunction<Integer, Integer, Integer> operation) {
         this.operator = operator;
         this.operation = operation;
     }
 
-    public static Calculator fromOperator(String operator) {
-        for (Calculator cal : values()) {
-            if (cal.operator.equals(operator)) return cal;
-        }
-        throw new IllegalArgumentException("잘못된 연산자 입니다.");
+    private static Calculator getOperator(String operator) {
+        return List.of(values())
+                .stream()
+                .filter(op -> op.operator.equals(operator))
+                .findFirst()
+                .orElseThrow(() -> new IllegalArgumentException("유효하지 않은 연산자입니다."));
     }
 
-    public Double apply(Double a, Double b) {
-        return operation.apply(a, b);
+    public static Integer calculateFormula(NumberSplitter inputSplitter, OperatorSplitter operatorSplitter) {
+        List<Integer> numberValues = inputSplitter.getNumberValues();
+        List<String> operatorValues = operatorSplitter.getOperatorValues();
+
+        Integer calculateResult = numberValues.get(0);
+
+        for (int i = 0; i < operatorValues.size(); i++) {
+            String operator = operatorValues.get(i);
+            Integer nextNumber = numberValues.get(i+1);
+
+            Calculator calculation = getOperator(operator);
+            calculateResult = calculation.operation.apply(calculateResult, nextNumber);
+        }
+
+        return calculateResult;
     }
 }

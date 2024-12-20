@@ -3,14 +3,17 @@ package org.example;
 public class Main {
     public static void main(String[] args) {
 
-        String formula = "1 + 2 * 3 / 4";
+//        Formula formula = new Formula();
+//        String inputFormula = formula.getFormula();
 
-        NumberSplitter numberSplitter = new NumberSplitter(formula);
-        OperationSplitter operationSplitter = new OperationSplitter(formula);
+        String inputFormula = "1 + 2 * 3 / 4";
+        Splitter splitter = new Splitter(" ");
+        String standardSplitter = splitter.getSplitter();
 
-
-
-        ResultPrinter resultPrinter = new ResultPrinter(0.0D);
+        ResultPrinter resultPrinter = new ResultPrinter(Calculator.calculateFormula(
+                new NumberSplitterBySpace(inputFormula, standardSplitter),
+                new OperatorSplitterBySpace(inputFormula, standardSplitter)
+        ));
         resultPrinter.printResult();
     }
 }
