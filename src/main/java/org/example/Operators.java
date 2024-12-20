@@ -10,7 +10,12 @@ public class Operators {
         this.operators = operators;
     }
 
-    public List<Operator> getOperators() {
-        return this.operators;
+    public Operator getOperator() {
+        if (operators.isEmpty()) {
+            throw new NullPointerException("No more operators exist");
+        }
+        Operator operator = operators.get(0);
+        operators.remove(0);
+        return operator;
     }
 }

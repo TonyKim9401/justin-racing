@@ -1,10 +1,10 @@
 package org.example;
 
-public class IntegerNumber {
+public class DoubleNumber {
 
     private final Double number;
 
-    public IntegerNumber(String inputValue) {
+    public DoubleNumber(String inputValue) {
         validateInputIsDouble(inputValue);
         double doubleValue = Double.parseDouble(inputValue);
         validateDoubleIsPositive(doubleValue);
