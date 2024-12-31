@@ -1,13 +1,13 @@
 package org.example;
 
 public class ResultPrinter {
-    private final Integer result;
+    private final Number number;
 
-    public ResultPrinter(Integer result) {
-        this.result = result;
+    public ResultPrinter(Number number) {
+        this.number = number;
     }
 
     public void printResult() {
-        System.out.println("result: " + this.result);
+        System.out.println("result: " + this.number.getNumber());
     }
 }

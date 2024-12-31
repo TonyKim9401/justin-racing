@@ -1,14 +1,6 @@
 package org.example;
 
-public class Splitter {
+public interface Splitter {
 
-    private String splitter;
-
-    public Splitter(String splitter) {
-        this.splitter = splitter;
-    }
-
-    public String getSplitter() {
-        return this.splitter;
-    }
+    String[] getSplitResult();
 }

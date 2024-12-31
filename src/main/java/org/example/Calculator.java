@@ -29,20 +29,22 @@ enum Calculator {
                 .orElseThrow(() -> new IllegalArgumentException("유효하지 않은 연산자입니다."));
     }
 
-    public static Integer calculateFormula(NumberSplitter inputSplitter, OperatorSplitter operatorSplitter) {
-        List<Integer> numberValues = inputSplitter.getNumberValues();
-        List<String> operatorValues = operatorSplitter.getOperatorValues();
+    public static Number calculateFormula(Numbers integerNumbers, Operations fourBasicOperations) {
+        Number calculateResult = integerNumbers.getTheFirstNumber();
 
-        Integer calculateResult = numberValues.get(0);
-
-        for (int i = 0; i < operatorValues.size(); i++) {
-            calculateResult = applyOperation(getOperator(operatorValues.get(i)), calculateResult, numberValues.get(i+1));
+        while (fourBasicOperations.checkOperationsIsEmpty()) {
+            Operation theFirstOperation = fourBasicOperations.getTheFirstOperation();
+            calculateResult = new IntegerNumber(applyOperation(
+                                                    getOperator(theFirstOperation.getOperation()),
+                                                    calculateResult,
+                                                    integerNumbers.getTheFirstNumber()
+                                                ));
         }
 
         return calculateResult;
     }
 
-    private static Integer applyOperation(Calculator calculation, Integer calculateResult, Integer nextNumber) {
-        return calculation.operation.apply(calculateResult, nextNumber);
+    private static Integer applyOperation(Calculator calculation, Number calculateResult, Number nextNumber) {
+        return calculation.operation.apply(calculateResult.getNumber(), nextNumber.getNumber());
     }
 }
