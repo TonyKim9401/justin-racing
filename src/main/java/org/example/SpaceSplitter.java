@@ -9,6 +9,7 @@ public class SpaceSplitter implements Splitter{
 
     public SpaceSplitter(String formula) {
         this.formula = formula;
+        // 굳이 메소드를 따로 만들 필요가 있을까? 싶기도 함
         this.splitFormula();
     }
 

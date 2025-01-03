@@ -12,6 +12,7 @@ public class FourBasicOperations implements Operations{
         convertToFourBasicOperations(splitFormulaResult);
     }
 
+    // 수식을 각 숫자, 연산자를 구분하는 더 좋은 방법이 있을까?
     private void convertToFourBasicOperations(String[] splitFormulaResult) {
         for (int i = 1; i < splitFormulaResult.length; i+=2) {
             this.fourBasicOperations.add(new FourBasicOperation(splitFormulaResult[i]));

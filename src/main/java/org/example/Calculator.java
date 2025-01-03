@@ -35,6 +35,7 @@ enum Calculator {
         while (fourBasicOperations.checkOperationsIsEmpty()) {
             Operation theFirstOperation = fourBasicOperations.getTheFirstOperation();
             calculateResult = new IntegerNumber(applyOperation(
+                                                    // 해당 연산자를 찾는 더 좋은 방법이 있을까?
                                                     getOperator(theFirstOperation.getOperation()),
                                                     calculateResult,
                                                     integerNumbers.getTheFirstNumber()
@@ -44,6 +45,9 @@ enum Calculator {
         return calculateResult;
     }
 
+    // 1. calculateResult? prevNumber?
+    // 2. calculation.operation.apply 에 파라미터로 int? Number?
+    // -> BiFunction 의 제네릭 자체를 추상화 할 수 있는걸까?
     private static Integer applyOperation(Calculator calculation, Number calculateResult, Number nextNumber) {
         return calculation.operation.apply(calculateResult.getNumber(), nextNumber.getNumber());
     }
