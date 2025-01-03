@@ -11,6 +11,6 @@ public interface Number {
 //    void convertToNumber(String stringNumber);
 
     // 숫자 자료형은 int 뿐만 아니라 double, float, BigDecimal 등이 올 수 있는데
-    // 어떻게 추상화를 하면 좋을까?
+    // 어떻게 추상화를 하면 좋을까? -> 제네릭
     Integer getNumber();
 }

@@ -1,10 +1,11 @@
 package org.example;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class FourBasicOperations implements Operations{
 
-    private List<Operation> fourBasicOperations;
+    private final List<Operation> fourBasicOperations = new ArrayList<>();
     private final Integer INDEX = 0;
 
     public FourBasicOperations(String[] splitFormulaResult) {
@@ -19,8 +20,8 @@ public class FourBasicOperations implements Operations{
 
     @Override
     public Operation getTheFirstOperation() {
-        Operation fourBasicOperation = fourBasicOperations.get(INDEX);
-        this.fourBasicOperations.remove(INDEX);
+        Operation fourBasicOperation = this.fourBasicOperations.get(INDEX);
+        this.fourBasicOperations.remove(fourBasicOperation);
         return fourBasicOperation;
     }
 

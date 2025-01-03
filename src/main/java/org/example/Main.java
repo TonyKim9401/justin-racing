@@ -1,5 +1,7 @@
 package org.example;
 
+import java.util.Date;
+
 public class Main {
     public static void main(String[] args) {
 
@@ -15,8 +17,18 @@ public class Main {
                 new IntegerNumbers(splitFormulaResult),
                 new FourBasicOperations(splitFormulaResult)
         );
+
         ResultPrinter resultPrinter = new ResultPrinter(number);
 
         resultPrinter.printResult();
+
+        /*
+
+        new ResultPrinter(Calculator.calculateFormula(
+                new IntegerNumbers(new SpaceSplitter("1 + 2 * 3 / 4").getSplitResult()),
+                new FourBasicOperations(new SpaceSplitter("1 + 2 * 3 / 4").getSplitResult())
+        )).printResult();
+
+        */
     }
 }
