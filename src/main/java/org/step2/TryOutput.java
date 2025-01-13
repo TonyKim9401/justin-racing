@@ -1,6 +1,6 @@
 package org.step2;
 
-public class TryOutput implements Output{
+public class TryOutput implements Output {
 
     private final Input input;
 

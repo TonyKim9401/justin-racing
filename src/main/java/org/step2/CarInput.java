@@ -14,7 +14,6 @@ public class CarInput implements Input {
     private void inputCarCountFromUser() {
         Scanner scanner = new Scanner(System.in);
         this.carCountInput = scanner.nextInt();
-//        scanner.close();
     }
 
     @Override

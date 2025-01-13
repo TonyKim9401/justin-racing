@@ -2,7 +2,7 @@ package org.step2;
 
 import java.util.Random;
 
-public class RandomCondition implements Condition{
+public class RandomCondition implements Condition {
 
     private boolean condition;
 
