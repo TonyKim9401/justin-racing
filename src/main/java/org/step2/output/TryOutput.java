@@ -1,4 +1,6 @@
-package org.step2;
+package org.step2.output;
+
+import org.step2.input.Input;
 
 public class TryOutput implements Output {
 

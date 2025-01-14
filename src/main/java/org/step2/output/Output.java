@@ -1,4 +1,4 @@
-package org.step2;
+package org.step2.output;
 
 public interface Output {
 

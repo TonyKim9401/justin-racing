@@ -1,4 +1,6 @@
-package org.step2;
+package org.step2.output;
+
+import org.step2.input.Input;
 
 /**
  * Car 와 관련한 Output 을 담당하는 클래스

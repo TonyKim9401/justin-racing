@@ -1,4 +1,7 @@
-package org.step2;
+package org.step2.car;
+
+import org.step2.condition.Condition;
+import org.step2.output.Output;
 
 /**
  * Car 의 기본 기능을 구현한 핵심 클래스인 RacingCar 클래스

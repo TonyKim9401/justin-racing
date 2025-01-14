@@ -1,4 +1,8 @@
-package org.step2;
+package org.step2.execution;
+
+import org.step2.car.Car;
+import org.step2.car.RacingCars;
+import org.step2.output.Output;
 
 /**
  * RacingGame 실행 클래스

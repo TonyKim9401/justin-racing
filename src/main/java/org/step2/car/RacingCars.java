@@ -1,7 +1,9 @@
-package org.step2;
+package org.step2.car;
 
 import java.util.ArrayList;
 import java.util.List;
+import org.step2.condition.Condition;
+import org.step2.output.Output;
 
 /**
  * RacingCar 를 사용하는 일급클래스
