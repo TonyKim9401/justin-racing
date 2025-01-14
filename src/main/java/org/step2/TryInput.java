@@ -7,8 +7,12 @@ public class TryInput implements Input {
     private int tryInputValue;
 
     public TryInput() {
-        System.out.println("시도할 회수는 몇 회 인가요?");
+        initializingInputMessage();
         inputTryCountFromUser();
+    }
+
+    private void initializingInputMessage() {
+        System.out.println("시도할 회수는 몇 회 인가요?");
     }
 
     private void inputTryCountFromUser() {

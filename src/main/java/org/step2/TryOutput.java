@@ -9,16 +9,6 @@ public class TryOutput implements Output {
     }
 
     @Override
-    public void printMessage() {
-        System.out.println("시도할 회수는 몇 회 인가요?");
-    }
-
-    @Override
-    public void printValue() {
-        System.out.println(this.input.getInputValue());
-    }
-
-    @Override
     public void printValue(Integer value) {
 
     }
