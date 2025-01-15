@@ -3,6 +3,7 @@ package org.step2.car;
 import java.util.ArrayList;
 import java.util.List;
 import org.step2.condition.Condition;
+import org.step2.input.Input;
 import org.step2.output.Output;
 
 /**
@@ -10,8 +11,6 @@ import org.step2.output.Output;
  */
 public class RacingCars {
 
-    private final Output output;
-    private final Condition condition;
     private final List<Car> cars = new ArrayList<>();
 
     /**
@@ -20,15 +19,12 @@ public class RacingCars {
      * output 에서 input 값을 확인하여 car 를 초기화 한다.
      * -> 의존성이 너무 복잡하게 되는것 같은 생각이 든다.
      */
-    public RacingCars(Output output, Condition condition) {
-        this.output = output;
-        this.condition = condition;
-        initializeRacingCar();
+    public RacingCars() {
     }
 
-    private void initializeRacingCar() {
-        for (int i = 0; i < this.output.getInputValue(); i++) {
-            this.cars.add(new RacingCar(this.condition, this.output));
+    public void initializeRacingCar(Input input, Condition condition) {
+        for (int i = 0; i < input.getInputValue(); i++) {
+            this.cars.add(new RacingCar(condition));
         }
     }
 

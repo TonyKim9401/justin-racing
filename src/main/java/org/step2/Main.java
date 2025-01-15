@@ -4,17 +4,25 @@ import org.step2.car.RacingCars;
 import org.step2.condition.RandomCondition;
 import org.step2.execution.RacingExecution;
 import org.step2.input.CarInput;
+import org.step2.input.Input;
 import org.step2.input.TryInput;
 import org.step2.output.CarOutput;
-import org.step2.output.TryOutput;
 
 public class Main {
     public static void main(String[] args) {
 
-        new RacingExecution(new RacingCars(new CarOutput(new CarInput()),
-                new RandomCondition()),
-                new TryOutput(new TryInput())
-        );
+        // 입력 받고
+        Input tryInput = new TryInput();
+        Input carInput = new CarInput();
 
+        // 레이싱 게임 진행
+        RacingCars cars = new RacingCars();
+        cars.initializeRacingCar(carInput,new RandomCondition());
+        RacingExecution racingExecution = new RacingExecution(cars);
+        racingExecution.getExecutionResult(tryInput);
+
+        // 결과 출력
+        CarOutput carOutput = new CarOutput();
+        carOutput.printValue(cars);
     }
 }
