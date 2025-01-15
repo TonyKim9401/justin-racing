@@ -1,6 +1,6 @@
 package org.step2.car;
 
-public class CarLog implements Log {
+public class CarLog {
 
     /**
      * CarOutput 에서 위치 이동을 나타낼 문자를 final 로 처리
@@ -17,7 +17,6 @@ public class CarLog implements Log {
         this.movement = MOVE_EXPRESSION.repeat(moveCount);
     }
 
-    @Override
     public String getLog() {
         return this.movement;
     }

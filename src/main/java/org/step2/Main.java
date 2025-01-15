@@ -12,17 +12,14 @@ public class Main {
     public static void main(String[] args) {
 
         // 입력 받고
-        Input tryInput = new TryInput();
         Input carInput = new CarInput();
+        Input tryInput = new TryInput();
 
         // 레이싱 게임 진행
-        RacingCars cars = new RacingCars();
-        cars.initializeRacingCar(carInput,new RandomCondition());
-        RacingExecution racingExecution = new RacingExecution(cars);
-        racingExecution.getExecutionResult(tryInput);
+        RacingCars cars = new RacingCars(carInput.getInputValue(), new RandomCondition());
+        new RacingExecution(cars).executeRacingGame(tryInput.getInputValue());
 
         // 결과 출력
-        CarOutput carOutput = new CarOutput();
-        carOutput.printValue(cars);
+        new CarOutput(cars).printValue();
     }
 }

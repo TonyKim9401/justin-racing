@@ -7,7 +7,7 @@ public class TryOutput implements Output {
     }
 
     @Override
-    public void printValue(Integer value) {
-        System.out.println(value);
+    public void printValue() {
+
     }
 }
