@@ -16,10 +16,13 @@ public class Main {
         Input tryInput = new TryInput();
 
         // 레이싱 게임 진행
-        RacingCars cars = new RacingCars(carInput.getInputValue(), new RandomCondition());
-        new RacingExecution(cars).executeRacingGame(tryInput.getInputValue());
+        int tryCount = tryInput.getInputValue();
+        int carCount = carInput.getInputValue();
+
+        RacingCars cars = new RacingCars(carCount, new RandomCondition());
+        new RacingExecution(cars, tryCount).executeRacingGame();
 
         // 결과 출력
-        new CarOutput(cars).printValue();
+        new CarOutput(cars, tryCount).printValue();
     }
 }

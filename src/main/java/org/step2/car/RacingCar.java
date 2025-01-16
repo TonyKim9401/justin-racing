@@ -12,6 +12,11 @@ public class RacingCar {
 
     private Integer carRanking;
     private final Condition condition;
+
+    /**
+     * carLogs 또한 일급컬렉션으로 하는게 맞다고 생각됨
+     * -> 응집성 강화
+     */
     private final List<CarLog> carLogs = new ArrayList<>();
 
     private Integer position;
@@ -23,12 +28,20 @@ public class RacingCar {
         this.position = 0;
     }
 
+    /**
+     * CarRanking 이지만 실제로는 생성된 차량의 순서를 가지고 있음
+     * -> 이름 변경 필요
+     * -> 혹은 이후 각 실행마다 순위를 체크시 사용할수도 있지만, 순위는 CarLog 에 기록하는게 맞지 않을까?
+     */
     public Integer checkCarRanking() {
         return this.carRanking;
     }
 
-    public List<CarLog> getCarLogs() {
-        return Collections.unmodifiableList(this.carLogs);
+    /**
+     * 각 RacingCar 의 실행 횟수의 결과를 가져옴
+     */
+    public CarLog getCarLogByTryCount(Integer tryCount) {
+        return this.carLogs.get(tryCount);
     }
 
     /**

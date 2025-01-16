@@ -9,19 +9,20 @@ import org.step2.car.RacingCars;
 public class RacingExecution {
 
     private final RacingCars cars;
+    private final Integer tryCount;
 
-    public RacingExecution(RacingCars cars) {
+    public RacingExecution(RacingCars cars, Integer tryCount) {
         this.cars = cars;
+        this.tryCount = tryCount;
     }
 
     /**
      * 1. 실행 횟수 만큼 for loop 실행
      * 2. 파라미터를 Input 그대로 받기 vs Integer value 만 받기
      *
-     * Input 을 파라미터로 받는데, Integer 값만 받는게 나을까?
      */
-    public void executeRacingGame(Integer tryCount) {
-        for (int i = 0; i < tryCount; i++) {
+    public void executeRacingGame() {
+        for (int i = 0; i < this.tryCount; i++) {
             this.cars.getCars().forEach(RacingCar::moveForward);
         }
     }
