@@ -1,5 +1,6 @@
 package org.step2;
 
+import java.util.Scanner;
 import org.step2.car.RacingCars;
 import org.step2.condition.RandomCondition;
 import org.step2.execution.RacingExecution;
@@ -12,8 +13,9 @@ public class Main {
     public static void main(String[] args) {
 
         // 입력 받고
-        Input carInput = new CarInput();
-        Input tryInput = new TryInput();
+        Scanner scanner = new Scanner(System.in);
+        Input carInput = new CarInput(scanner);
+        Input tryInput = new TryInput(scanner);
 
         // 레이싱 게임 진행
         int tryCount = tryInput.getInputValue();

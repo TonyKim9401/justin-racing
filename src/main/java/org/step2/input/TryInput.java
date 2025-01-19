@@ -5,8 +5,10 @@ import java.util.Scanner;
 public class TryInput implements Input {
 
     private int tryInputValue;
+    private final Scanner scanner;
 
-    public TryInput() {
+    public TryInput(Scanner scanner) {
+        this.scanner = scanner;
         initializingInputMessage();
         inputTryCountFromUser();
     }
@@ -16,7 +18,6 @@ public class TryInput implements Input {
     }
 
     private void inputTryCountFromUser() {
-        Scanner scanner = new Scanner(System.in);
         this.tryInputValue = scanner.nextInt();
     }
 

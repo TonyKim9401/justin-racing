@@ -8,8 +8,10 @@ import java.util.Scanner;
 public class CarInput implements Input {
 
     private int carCountInput;
+    private final Scanner scanner;
 
-    public CarInput() {
+    public CarInput(Scanner scanner) {
+        this.scanner = scanner;
         initializingInputMessage();
         inputCarCountFromUser();
     }
@@ -29,7 +31,6 @@ public class CarInput implements Input {
      * static 으로 하나만 만들어서 사용 하려면 어떻게 사용하면 좋을지?
      */
     private void inputCarCountFromUser() {
-        Scanner scanner = new Scanner(System.in);
         this.carCountInput = scanner.nextInt();
     }
 

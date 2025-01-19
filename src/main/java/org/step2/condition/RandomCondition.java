@@ -10,7 +10,14 @@ public class RandomCondition implements Condition {
     private final Random random;
 
     public RandomCondition() {
-        this.random = new Random();
+        this(new Random());
+    }
+
+    /**
+     * 테스트 목킹 용도 생성자
+     */
+    public RandomCondition(Random random) {
+        this.random = random;
     }
 
     private boolean judgeRandomCondition() {
