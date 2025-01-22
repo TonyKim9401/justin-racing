@@ -59,4 +59,12 @@ public class RacingCar {
         }
         this.carLogs.add(new CarLog(this.position));
     }
+
+    public List<CarLog> getCarLogs() {
+        return Collections.unmodifiableList(carLogs);
+    }
+
+    public Integer getPosition() {
+        return this.position;
+    }
 }
