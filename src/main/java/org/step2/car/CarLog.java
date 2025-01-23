@@ -10,6 +10,7 @@ public class CarLog {
     private String movement;
 
     public CarLog(Integer moveCount) {
+        validateMoveCount(moveCount);
         recordLog(moveCount);
     }
 
@@ -17,7 +18,17 @@ public class CarLog {
         this.movement = MOVE_EXPRESSION.repeat(moveCount);
     }
 
+    private void validateMoveCount(Integer moveCount) {
+        if (moveCount < 0) {
+            throw new IllegalArgumentException("이동 횟수는 0 이상만 입력 가능합니다.");
+        }
+    }
+
     public String getLog() {
         return this.movement;
+    }
+
+    public String getMoveExpression() {
+        return this.MOVE_EXPRESSION;
     }
 }
