@@ -15,10 +15,11 @@ class CarLogTest {
     @Test
     void testRecordLogSuccess() {
         // given
-        int moveCount = 0;
+        Integer moveCount = 0;
+        Integer logSequence = 0;
 
         // when
-        CarLog carLog = new CarLog(moveCount);
+        CarLog carLog = new CarLog(logSequence, moveCount);
 
         // then
         String moveExpression = carLog.getMoveExpression();
@@ -27,14 +28,15 @@ class CarLogTest {
         assertThat(carLog.getLog()).isEqualTo(expectedMovement);
     }
 
-    @DisplayName("잘못도닌 이동 횟수로 인한 로그 기록 실패")
+    @DisplayName("잘못된 이동 횟수로 인한 로그 기록 실패")
     @Test
     void testRecordLogFailWithInvalidMoveCount() {
         // given
-        int moveCount = -1;
+        Integer moveCount = -1;
+        Integer logSequence = 0;
 
         // when // then
-        assertThatThrownBy(() -> new CarLog(moveCount))
+        assertThatThrownBy(() -> new CarLog(logSequence, moveCount))
                 .isInstanceOf(IllegalArgumentException.class)
                 .hasMessage("이동 횟수는 0 이상만 입력 가능합니다.");
     }
