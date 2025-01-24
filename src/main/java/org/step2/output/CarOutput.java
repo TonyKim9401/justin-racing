@@ -35,7 +35,7 @@ public class CarOutput implements Output {
         System.out.println("실행 결과");
 
         for (int i = 0; i < this.tryCount; i++) {
-            List<CarLog> carLogs = this.racingCars.getCarLogByTryCount(i);
+            List<CarLog> carLogs = this.racingCars.getCarLogsByTryCount(i);
             carLogs.forEach(carLog -> System.out.println(carLog.getLog()));
             System.out.println();
         }
