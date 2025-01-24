@@ -7,9 +7,11 @@ public class CarLog {
      */
     private final String MOVE_EXPRESSION = "-";
 
+    private Integer logSequence;
     private String movement;
 
-    public CarLog(Integer moveCount) {
+    public CarLog(Integer logSequence, Integer moveCount) {
+        this.logSequence = logSequence;
         validateMoveCount(moveCount);
         recordLog(moveCount);
     }
@@ -26,6 +28,10 @@ public class CarLog {
 
     public String getLog() {
         return this.movement;
+    }
+
+    public Integer getLogSequence() {
+        return this.logSequence;
     }
 
     public String getMoveExpression() {
