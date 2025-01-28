@@ -1,7 +1,5 @@
 package org.step2.car;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import org.step2.condition.Condition;
 
@@ -12,15 +10,10 @@ public class RacingCar {
 
     private final Condition condition;
 
-    /**
-     * carLogs 또한 일급컬렉션으로 하는게 맞다고 생각됨
-     * -> 응집성 강화
-     */
-    private final List<CarLog> carLogs = new ArrayList<>();
-
     private Integer carSequence;
     private Integer position;
     private Integer racingExecuteSequence;
+    private CarLogs carLogs;
 
 
     public RacingCar(Integer carSequence, Condition condition) {
@@ -28,6 +21,7 @@ public class RacingCar {
         this.condition = condition;
         this.position = 0;
         this.racingExecuteSequence = 0;
+        this.carLogs = new CarLogs();
     }
 
     /**
@@ -35,7 +29,7 @@ public class RacingCar {
      */
     public void moveForward() {
         checkMoveCondition();
-        addNewCarLog();
+        recordCarLog();
         increaseRacingExecuteSequence();
     }
 
@@ -43,8 +37,8 @@ public class RacingCar {
         if (this.condition.getConditionValue()) this.position += 1;
     }
 
-    private void addNewCarLog() {
-        this.carLogs.add(new CarLog(this.racingExecuteSequence, this.position));
+    private void recordCarLog() {
+        this.carLogs.addNewCarLog(new CarLog(this.racingExecuteSequence, this.position));
     }
 
     private void increaseRacingExecuteSequence() {
@@ -56,12 +50,15 @@ public class RacingCar {
         return this.carSequence;
     }
 
+    /**
+     * 메소드 이름을 똑같이 해두면 사용시 헷갈릴것 같은데 같은 목적을 가졌을 때 어떻게 명명하면 좋을까?
+     */
     public CarLog getCarLogByTryCount(Integer tryCount) {
-        return this.carLogs.get(tryCount);
+        return this.carLogs.getCarLogByTryCount(tryCount);
     }
 
     public List<CarLog> getCarLogs() {
-        return Collections.unmodifiableList(carLogs);
+        return this.carLogs.getCarLogs();
     }
 
     public Integer getPosition() {
