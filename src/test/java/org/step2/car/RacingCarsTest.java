@@ -29,7 +29,7 @@ class RacingCarsTest {
         assertThat(racingCars.getCars()).hasSize(carCount);
     }
 
-    @DisplayName("RacingCars 각 요소의 CarLog 를 가져온다.")
+    @DisplayName("RacingCars 각 요소의 CarLog 를 가져온다")
     @Test
     void testGetCarLogsByTryCount() {
         // given

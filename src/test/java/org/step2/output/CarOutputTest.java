@@ -17,7 +17,7 @@ class CarOutputTest {
     private final ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
     private final PrintStream originalOut = System.out;
 
-    @DisplayName("값 출력 성공")
+    @DisplayName("값 출력에 성공한다")
     @Test
     void testPrintValueSuccess() {
         // given

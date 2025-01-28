@@ -14,7 +14,7 @@ class CarInputTest {
      * 이렇게 하면 생성자, getInputValue() 둘을 동시에 테스트 하게 되는것 같은데..
      * 어떻게 분리해야 하나..
       */
-    @DisplayName("유저의 차 카운트 입력 성공")
+    @DisplayName("유저의 차 카운트 입력에 성공한다")
     @Test
     void testInputCarCountFromUserSuccess() {
         //given
@@ -33,7 +33,7 @@ class CarInputTest {
     /**
      * DisplayName 을 String 이랑 관련 있게 하고 싶은데..
      */
-    @DisplayName("유저의 차 카운트 입력 실패")
+    @DisplayName("유저의 차 카운트 입력에 실패한다")
     @Test
     void testInputCarCountFromUserFailWithString() {
         //given

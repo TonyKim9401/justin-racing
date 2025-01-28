@@ -11,7 +11,7 @@ class CarLogTest {
     /**
      * 0 과 -1 을 사용한 로그 기록 경계값 테스트
      */
-    @DisplayName("로그 기록 성공")
+    @DisplayName("로그 기록 성공에 성공한다")
     @Test
     void testRecordLogSuccess() {
         // given
@@ -28,7 +28,7 @@ class CarLogTest {
         assertThat(carLog.getLog()).isEqualTo(expectedMovement);
     }
 
-    @DisplayName("잘못된 이동 횟수로 인한 로그 기록 실패")
+    @DisplayName("잘못된 이동 횟수로 인한 로그 기록 실패한다")
     @Test
     void testRecordLogFailWithInvalidMoveCount() {
         // given

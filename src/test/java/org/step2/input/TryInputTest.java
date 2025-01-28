@@ -14,7 +14,7 @@ class TryInputTest {
     /**
      * carInput 과 같은 고민
      */
-    @DisplayName("유저의 시도 카운트 입력 성공")
+    @DisplayName("유저의 시도 카운트 입력에 성공한다")
     @Test
     void testInputTruCountFromUserSuccess() {
         //given
@@ -30,7 +30,7 @@ class TryInputTest {
         assertThat(inputTryValueFromUser).isEqualTo(tryInput.getInputValue());
     }
 
-    @DisplayName("유저의 시도 카운트 입력 실패")
+    @DisplayName("유저의 시도 카운트 입력에 실패한다")
     @Test
     void testInputTryCountFromUserFailWithString() {
         //given

@@ -14,7 +14,7 @@ import org.step2.condition.RandomCondition;
 
 class RacingExecutionTest {
 
-    @DisplayName("레이싱 게임 실행 성공")
+    @DisplayName("레이싱 게임 실행에 성공한다")
     @Test
     void testExecuteRacingGameSuccess() {
         // given

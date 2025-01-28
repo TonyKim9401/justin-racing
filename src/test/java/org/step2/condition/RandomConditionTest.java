@@ -23,7 +23,7 @@ class RandomConditionTest {
      *  Mockito 3.X.X 버전 사용시 Random mocking 불가 -> final 객체
      *  -> 5.1.1 버전으로 올려 해결
      */
-    @DisplayName("랜덤 컨디션 True 반환 성공")
+    @DisplayName("랜덤 컨디션 True 반환 성공한다")
     @Test
     void testRandomConditionValueReturnTrue() {
         // given // when
@@ -34,7 +34,7 @@ class RandomConditionTest {
         assertThat(randomCondition.getConditionValue()).isTrue();
     }
 
-    @DisplayName("랜덤 컨디션 True 반환 실패")
+    @DisplayName("랜덤 컨디션 True 반환 실패한다")
     @Test
     void testRandomConditionValueReturnFalse() {
         // given // when
