@@ -19,7 +19,7 @@ public class CarLogs {
         this.carLogs.add(carLog);
     }
 
-    public CarLog getCarLogByTryCount(Integer tryCount) {
+    public CarLog getLogByTryCount(Integer tryCount) {
         return this.carLogs.get(tryCount);
     }
 }

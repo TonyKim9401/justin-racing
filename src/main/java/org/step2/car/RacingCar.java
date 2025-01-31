@@ -50,11 +50,8 @@ public class RacingCar {
         return this.carSequence;
     }
 
-    /**
-     * 메소드 이름을 똑같이 해두면 사용시 헷갈릴것 같은데 같은 목적을 가졌을 때 어떻게 명명하면 좋을까?
-     */
     public CarLog getCarLogByTryCount(Integer tryCount) {
-        return this.carLogs.getCarLogByTryCount(tryCount);
+        return this.carLogs.getLogByTryCount(tryCount);
     }
 
     public List<CarLog> getCarLogs() {
