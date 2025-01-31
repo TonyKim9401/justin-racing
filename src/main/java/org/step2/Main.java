@@ -25,6 +25,6 @@ public class Main {
         new RacingExecution(cars, tryCount).executeRacingGame();
 
         // 결과 출력
-        new CarOutput(cars, tryCount).printValue();
+        new CarOutput(cars).printValue();
     }
 }

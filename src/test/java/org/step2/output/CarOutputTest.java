@@ -33,7 +33,7 @@ class CarOutputTest {
         RacingExecution racingExecution = new RacingExecution(racingCars, tryCount);
         racingExecution.executeRacingGame();
 
-        CarOutput carOutput = new CarOutput(racingCars, tryCount);
+        CarOutput carOutput = new CarOutput(racingCars);
 
         // when
         carOutput.printValue();
@@ -46,9 +46,6 @@ class CarOutputTest {
                                 
                                 --
                                 --
-                                
-                                ---
-                                ---
                                 
                                 """;
         assertThat(outputStream.toString()).isEqualTo(resultOutput);
