@@ -11,8 +11,8 @@ public class CarLog {
     private String movement;
 
     public CarLog(Integer logSequence, Integer moveCount) {
-        this.logSequence = logSequence;
         validateMoveCount(moveCount);
+        this.logSequence = logSequence;
         recordLog(moveCount);
     }
 
