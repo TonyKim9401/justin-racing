@@ -31,6 +31,10 @@ public class RacingCars {
         return Collections.unmodifiableList(cars);
     }
 
+    public Integer getCarsCount() {
+        return this.cars.size();
+    }
+
     public List<CarLog> getCarLogsByTryCount(Integer tryCount) {
         return this.cars.stream()
                 .map(car -> car.getCarLogByTryCount(tryCount))

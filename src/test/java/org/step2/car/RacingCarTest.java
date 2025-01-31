@@ -1,6 +1,7 @@
 package org.step2.car;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.when;
 
@@ -26,10 +27,12 @@ class RacingCarTest {
         RacingCar racingCar = new RacingCar(carSequence, condition);
 
         // then
-        assertThat(racingCar.checkCarSequence()).isEqualTo(carSequence);
-        assertThat(racingCar.getPosition()).isEqualTo(0);
-        assertThat(racingCar.getCarLogs()).hasSize(0);
-        assertThat(racingCar.getRacingExecuteSequence()).isEqualTo(racingExecuteSequence);
+        assertAll(
+                () -> assertThat(racingCar.checkCarSequence()).isEqualTo(carSequence),
+                () -> assertThat(racingCar.getPosition()).isEqualTo(0),
+                () -> assertThat(racingCar.getCarLogs()).hasSize(0),
+                () -> assertThat(racingCar.getRacingExecuteSequence()).isEqualTo(racingExecuteSequence)
+        );
     }
 
     @DisplayName("로그 기록을 시행 횟수에 따라 순서대로 생성 확인에 성공한다")
